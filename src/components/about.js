@@ -23,7 +23,7 @@ export default class About extends Component {
               Minbox
             </a>.
           </p>
-          <p style={styles.about}>
+          <p style={[styles.about, styles.history]}>
             {'Previously, he was a founder at Y Combinator funded '}
             <span style={styles.highlight}>Interstate</span>
             {' (acquired by Stripe).'}
@@ -80,13 +80,23 @@ styles = {
     flexShrink: 0,
     backgroundColor: `rgba(77, 71, 83, 0.8)`,
     // backgroundImage: `linear-gradient(-180deg, rgba(32, 32, 32, 0.8) 0%, #000000 100%)`,
-    flexDirection: `column`
+    flexDirection: `column`,
+    '@media (max-width: 720px)': {
+      width: `auto`,
+      flexDirection: `row`
+    }
   },
   top: {
     padding: `35px 35px`,
     flexGrow: 1,
     flexShrink: 1,
     overflow: `auto`,
+    '@media (max-width: 720px)': {
+      paddingRight: 0
+    },
+    '@media (max-width: 600px)': {
+      paddingRight: 35
+    }
   },
   bottom: {
     display: `flex`,
@@ -95,7 +105,16 @@ styles = {
     flexDirection: `column`,
     flexGrow: 1,
     flexShrink: 0,
-    justifyContent: `flex-end`
+    justifyContent: `flex-end`,
+    '@media (max-width: 720px)': {
+      padding: 20,
+      maxHeight: `auto`,
+      alignItems: `center`,
+      justifyContent: `center`
+    },
+    '@media (max-width: 600px)': {
+      display: `none`
+    }
   },
   h1: {
     margin: 0,
@@ -110,7 +129,15 @@ styles = {
     marginTop: 20,
     fontSize: 18,
     fontWeight: 300,
-    color: `rgba(255, 255, 255, 0.5)`
+    color: `rgba(255, 255, 255, 0.5)`,
+    '@media (max-width: 720px)': {
+      marginTop: 5
+    }
+  },
+  history: {
+    '@media (max-width: 720px)': {
+      display: `none`
+    }
   },
   link: {
     transition: `border-bottom-color 250ms ease`,
@@ -137,9 +164,13 @@ styles = {
     justifyContent: `center`,
     alignItems: `center`,
     textAlign: `center`,
+    outline: `none`,
     opacity: 0.5,
     ':hover': {
       opacity: 1
+    },
+    '@media (max-width: 720px)': {
+      marginRight: 15
     }
   },
   socialIcon: {
@@ -154,6 +185,9 @@ styles = {
     color: `rgba(255, 255, 255, 0.3)`,
     justifyContent: `center`,
     alignItems: `center`,
-    textAlign: `center`
+    textAlign: `center`,
+    '@media (max-width: 720px)': {
+      display: `none`
+    }
   }
 };

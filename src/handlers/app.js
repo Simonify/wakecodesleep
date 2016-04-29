@@ -5,6 +5,7 @@ import posts from 'posts/index';
 
 var styles;
 
+@Radium
 export default class App extends Component {
   render() {
     return (
@@ -40,7 +41,10 @@ styles = {
     flexDirection: `row`,
     boxShadow: `0px 5px 14px 0px rgba(0,0,0,0.30)`,
     borderRadius: 6,
-    overflow: `hidden`
+    overflow: `hidden`,
+    '@media (max-width: 720px)': {
+      flexDirection: `column`
+    }
   },
   content: {
     display: `flex`,

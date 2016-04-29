@@ -34,7 +34,8 @@ styles = {
     flexShrink: 1,
     flexDirection: `column`,
     alignItems: `flex-start`,
-    overflow: `auto`
+    overflow: `auto`,
+    webkitOverflowScrolling: `touch`
   },
   post: {
     display: `flex`,
