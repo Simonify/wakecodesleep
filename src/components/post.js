@@ -72,7 +72,7 @@ export default class Post extends Component {
   render() {
     return (
       <div className="post-component" style={styles.component}>
-        <Link to={`/posts/${this.props.slug}`} style={styles.title}>
+        <Link to={`/posts/${this.props.slug}.html`} style={styles.title}>
           {this.props.title}
         </Link>
         <div style={styles.meta}>
