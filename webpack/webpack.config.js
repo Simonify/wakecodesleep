@@ -7,8 +7,32 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StaticRenderPlugin = require('static-site-generator-webpack-plugin');
 const getRoutes = require('router/getRoutes').default;
 const routes = getRoutes(require('posts').default);
+const plugins = [
+  new ExtractTextPlugin('styles.css'),
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin(),
+  new webpack.DefinePlugin({
+    'process.env': {
+      BROWSER: JSON.stringify('true'),
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
+    }
+  })
+];
+
+if (process.env.NODE_ENV === 'production') {
+  new webpack.optimize.UglifyJsPlugin({
+    compressor: {
+      screw_ie8: true,
+      warnings: false
+    }
+  })
+}
+
+plugins.push(new StaticRenderPlugin('bundle', routes.map((route) => route.path)));
 
 module.exports = {
+  plugins,
   entry: {
     bundle: ['./src/index.js'],
     app: [
@@ -52,19 +76,6 @@ module.exports = {
       { test: /\.jpg|md$/, loader: 'file' }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin('styles.css'),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        BROWSER: JSON.stringify('true'),
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
-      }
-    }),
-    new StaticRenderPlugin('bundle', routes.map((route) => route.path))
-  ],
   output: {
     path: path.join(__dirname, '../dist'),
     publicPath: '/',
