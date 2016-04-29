@@ -68,7 +68,7 @@ styles = {
     flexShrink: 1,
     flexDirection: `column`,
     overflow: `auto`,
-    webkitOverflowScrolling: `touch`
+    WebkitOverflowScrolling: `touch`
   },
   intro: {
     paddingBottom: 10,
