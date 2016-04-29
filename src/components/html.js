@@ -7,6 +7,7 @@ export default class Html extends Component {
         <head>
           <title>Simon Fletcher</title>
           <meta httpEquiv="Content-type" content="text/html; charset=utf-8"/>
+          <link rel="shortcut icon" href="http://66.media.tumblr.com/avatar_1dbc1bcdaa9e_128.png" />
           <link href="/styles.css" rel="stylesheet" />
         </head>
         <body id="sf-body">
