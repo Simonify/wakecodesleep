@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import pureRender from 'pure-render-decorator';
 import Radium from 'radium';
 import { Link } from 'react-router';
-import twitter from 'dist/images/twitter.png';
-import email from 'dist/images/email.png';
-import instagram from 'dist/images/instagram.png';
+import twitter from 'dist/images/twitter-white.png';
+import email from 'dist/images/email-white.png';
+import instagram from 'dist/images/instagram-white.png';
 import facebook from 'dist/images/facebook.png';
 
 var styles;
@@ -59,7 +59,6 @@ export default class About extends Component {
               key="email"
               href="mailto:simon@wakecodesleep.com"
               style={styles.socialLink}
-              target="_blank"
             >
               <img src={email} width={28} height={28} style={styles.socialIcon} />
             </a>
@@ -79,7 +78,7 @@ styles = {
     width: 345,
     flexGrow: 0,
     flexShrink: 0,
-    backgroundColor: `rgba(0,0,0,0.75)`,
+    backgroundColor: `rgba(77, 71, 83, 0.8)`,
     // backgroundImage: `linear-gradient(-180deg, rgba(32, 32, 32, 0.8) 0%, #000000 100%)`,
     flexDirection: `column`
   },
