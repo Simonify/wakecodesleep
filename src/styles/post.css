@@ -1,0 +1,35 @@
+#sf .post-component .hljs {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+#sf .post-component .body a {
+  transition: border-bottom-color 250ms ease, color 250ms ease;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  color: #76736E;
+}
+
+#sf .post-component .body a:hover {
+  border-bottom-color: #76736E;
+}
+
+#sf .post-component .body a:active {
+  color: #000000;
+}
+
+#sf .post-component .body p {
+  margin-top: 20px;
+}
+
+#sf .post-component .body blockquote {
+  margin: 20px 0 0 0;
+  padding: 15px;
+  background: #333;
+  border-radius: 3px;
+  color: #FFFFFF;
+}
+
+  #sf .post-component .body blockquote p {
+    margin-top: 0;
+  }
