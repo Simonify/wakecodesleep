@@ -19,14 +19,18 @@ export default class Footer extends Component {
       footer = this.renderSiblings(this.props.siblings);
     }
 
-    return (
+    return footer ? (
       <div style={styles.component}>
         {footer}
       </div>
-    );
+    ) : null;
   }
 
   renderSiblings({ previous, next}) {
+    if (!previous && !next) {
+      return null;
+    }
+
     return (
       <div style={styles.siblings.component}>
         <div style={styles.siblings.previous}>
