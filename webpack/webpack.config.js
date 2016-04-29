@@ -21,12 +21,12 @@ const plugins = [
 ];
 
 if (process.env.NODE_ENV === 'production') {
-  new webpack.optimize.UglifyJsPlugin({
+  plugins.push(new webpack.optimize.UglifyJsPlugin({
     compressor: {
       screw_ie8: true,
       warnings: false
     }
-  })
+  }));
 }
 
 plugins.push(new StaticRenderPlugin('bundle', routes.map((route) => route.path)));
