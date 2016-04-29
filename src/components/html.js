@@ -16,6 +16,19 @@ export default class Html extends Component {
           <script dangerouslySetInnerHTML={{
             __html: 'try{Typekit.load({ async: true });}catch(e){}'
           }} />
+          <script type="text/javascript" dangerouslySetInnerHTML={{
+            __html: `var _gauges = _gauges || [];
+            (function() {
+              var t   = document.createElement('script');
+              t.type  = 'text/javascript';
+              t.async = true;
+              t.id    = 'gauges-tracker';
+              t.setAttribute('data-site-id', '4f13d421613f5d4519000001');
+              t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+              t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(t, s);
+            })();` }} />
         </body>
       </html>
     );
