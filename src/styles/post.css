@@ -22,6 +22,14 @@
   margin-top: 20px;
 }
 
+#sf .post-component .body p code {
+  padding: 2px 6px 3px 6px;
+  background: #F6EFDC;
+  border-radius: 2px;
+  font-size: 16px;
+  color: rgba(0,0,0,0.8);
+}
+
 #sf .post-component .body blockquote {
   margin: 20px 0 0 0;
   padding: 15px;

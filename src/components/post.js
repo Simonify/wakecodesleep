@@ -90,6 +90,10 @@ export default class Post extends Component {
       return this.renderLink(this.props.url);
     }
 
+    if (typeof content === 'function') {
+      return this.renderPost(content(this.props));
+    }
+
     if (!Array.isArray(content)) {
       return this.renderPost([content]);
     }
