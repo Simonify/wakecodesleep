@@ -15,7 +15,7 @@ export default {
   title: "Hello world!"
 }`,
     `The \`content\` of a post can either just be a string (which it is in most cases) or an array of different JS object types, such as a Promise which can be used to load dynamic content within a post (the blog will render a spinner until the Promise resolves).`,
-    `I'll most probably make the code public once I've slightly tiedied it up — so if you're looking for a simple JavaScript blogging tool, check it out when it's ready!`
+    `I'll make the code public once I've tidied it up slightly — so if you're looking for a simple JavaScript blogging tool, check it out when it's ready!`
   ],
   title: 'Welcome to my new blog!',
   slug: 'welcome',
