@@ -15,15 +15,17 @@ export default class About extends Component {
     return (
       <div style={styles.component}>
         <div style={styles.top}>
-          <Link to="/" style={styles.h1}>Hi, I'm Simon.</Link>
-          <p style={styles.about}>
+          <Link className="has-font" style={styles.h1} to="/">
+            Hi, I'm Simon.
+          </Link>
+          <p className="has-font" style={styles.about}>
             {`Simon Fletcher is a 23 year old British software engineer currently
               working with JavaScript at `}
             <a key="mbx" href="https://minbox.com" style={styles.link} target="_blank">
               Minbox
             </a>.
           </p>
-          <p style={[styles.about, styles.history]}>
+          <p className="has-font" style={[styles.about, styles.history]}>
             {'Previously, he was a founder at Y Combinator funded '}
             <span style={styles.highlight}>Interstate</span>
             {' (acquired by Stripe).'}
@@ -63,7 +65,7 @@ export default class About extends Component {
               <img src={email} width={28} height={28} style={styles.socialIcon} />
             </a>
           </div>
-          <div style={styles.established}>
+          <div className="has-font" style={styles.established}>
             ESTABLISHED 1992
           </div>
         </div>
@@ -144,8 +146,8 @@ styles = {
     borderBottomWidth: 1,
     borderBottomStyle: `solid`,
     borderBottomColor: `transparent`,
-    color: `rgba(255, 255, 255, 1)`,
     textDecoration: `none`,
+    color: `rgba(255, 255, 255, 1)`,
     ':hover': {
       borderBottomColor: `rgba(255, 255, 255, 0.8)`
     }

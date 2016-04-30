@@ -31,3 +31,11 @@
 #sf p, #sf pre {
   margin: 0;
 }
+
+.has-font {
+  visibility: hidden;
+}
+
+.wf-active .has-font {
+  visibility: visible;
+}

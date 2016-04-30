@@ -40,6 +40,7 @@ export default class Index extends Component {
     return (
       <RadiumLink
         key={post.slug}
+        className="has-font"
         style={[styles.post, lastChild && styles.lastPost]}
         to={`/posts/${post.slug}.html`}
       >
