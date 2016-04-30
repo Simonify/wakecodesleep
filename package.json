@@ -4,8 +4,8 @@
   "description": "http://wakecodesleep.com",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.js",
-    "compile": "rm -rf dist/app-* && NODE_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack/webpack.config.js --progress --colors"
+    "start": "NODE_ENV=development babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.dev.js",
+    "compile": "rm -rf dist/blog-* && NODE_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack/webpack.config.production.js --progress --colors"
   },
   "author": "Simon Fletcher <simon@wakecodesleep.com> (http://wakecodesleep.com)",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "eslint": "^2.8.0",
     "eslint-config-airbnb": "^8.0.0",
     "eslint-plugin-react": "^5.0.1",
+    "eval": "^0.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.16.0",

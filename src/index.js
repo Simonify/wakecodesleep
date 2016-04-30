@@ -8,20 +8,22 @@ import { RouterContext, match, browserHistory, createMemoryHistory } from 'react
 import { router, routes } from 'router';
 import Html from 'components/html';
 
-module.exports = ({ assets, path }, callback) => {
+export default ({ assets, path }) => {
   const history = createMemoryHistory();
   const location = history.createLocation(path);
 
-  match({ history, location, routes }, (error, redirectLocation, renderProps) => {
-    callback(null, '<!doctype html>' + renderToString(
-      <Html assets={assets}>
-        {renderToStaticMarkup((
-          <StyleRoot>
-            <RouterContext {...renderProps} />
-          </StyleRoot>
-        ))}
-      </Html>
-    ));
+  return new Promise((resolve) => {
+    match({ history, location, routes }, (error, redirectLocation, renderProps) => {
+      resolve('<!doctype html>' + renderToString(
+        <Html assets={assets}>
+          {renderToStaticMarkup((
+            <StyleRoot>
+              <RouterContext {...renderProps} />
+            </StyleRoot>
+          ))}
+        </Html>
+      ));
+    });
   });
 }
 
