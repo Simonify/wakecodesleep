@@ -7,6 +7,8 @@ import email from 'dist/images/email-white.png';
 import instagram from 'dist/images/instagram-white.png';
 import facebook from 'dist/images/facebook.png';
 
+const RadiumLink = Radium(Link);
+
 var styles;
 
 @Radium
@@ -15,9 +17,9 @@ export default class About extends Component {
     return (
       <div style={styles.component}>
         <div style={styles.top}>
-          <Link className="has-font" style={styles.h1} to="/">
+          <RadiumLink className="has-font" style={styles.h1} to="/">
             Hi, I'm Simon.
-          </Link>
+          </RadiumLink>
           <p className="has-font" style={styles.about}>
             {`Simon Fletcher is a 23 year old British software engineer currently
               working with JavaScript at `}
@@ -119,19 +121,26 @@ styles = {
     }
   },
   h1: {
+    transition: `border-bottom-color 250ms ease`,
     margin: 0,
     padding: 0,
+    borderBottomWidth: 1,
+    borderBottomStyle: `solid`,
+    borderBottomColor: `transparent`,
     fontSize: 34,
     fontWeight: 300,
     lineHeight: `34px`,
     textDecoration: `none`,
-    color: `#FFFFFF`
+    color: `#FFFFFF`,
+    ':hover': {
+      borderBottomColor: `rgba(255, 255, 255, 0.25)`
+    }
   },
   about: {
     marginTop: 20,
     fontSize: 18,
     fontWeight: 300,
-    color: `rgba(255, 255, 255, 0.5)`,
+    color: `rgba(255, 255, 255, 0.6)`,
     '@media (max-width: 720px)': {
       marginTop: 5
     }
