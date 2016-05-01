@@ -10,7 +10,7 @@ export default {
 
     `### webpack's css-loader
 
-[css-loader](https://github.com/webpack/css-loader) is a loader for webpack that allows you to import a stylesheet as you would any other JavaScript module. It is not specifically designed for use with React but makes a good companion. When importing a css file, the loader will automatically convert each selector to a unique identifier that you can use as a \`className\` prop. It also introduces some additional functionality to CSS, including a \`composes\` rule which, as its name suggests, allows you to compose/apply another selector's styles (similar to \`@extends\` in SCSS), for example:`,
+[css-loader](https://github.com/webpack/css-loader) is a loader for [webpack](https://webpack.github.io/) that allows you to import a stylesheet as you would any other JavaScript module. It is not specifically designed for use with React but makes a good companion. When importing a css file, the loader will automatically convert each selector to a unique identifier that you can use as a \`className\` prop. It also introduces some additional functionality to CSS, including a \`composes\` rule which, as its name suggests, allows you to compose/apply another selector's styles (similar to \`@extends\` in SCSS), for example:`,
 
     js`.row {
   padding: 5px;
