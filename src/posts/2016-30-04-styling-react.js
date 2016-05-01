@@ -31,13 +31,13 @@ export default {
 
     `You can then use these identifiers as values for \`className\` props (protip: you can use something like my own [class-name](https://github.com/simonify/class-name) module to combine multiple class names together). One of the great things about css-loader is that because it still uses stylesheets, you can use it in conjuction with other great webpack loaders such as [precss](https://github.com/jonathantneal/precss).`,
 
-    `css-loader lets you keep the familiarity of CSS but work with it in a more modern, modular way. You can read more about it here: https://github.com/webpack/css-loader.`,
+    `In summary, css-loader lets you keep the familiarity of CSS but work with it in a more modern, modular way. You can read more about it here: https://github.com/webpack/css-loader.`,
 
     `### Radium
 
-[Radium](https://github.com/FormidableLabs/radium) is an enhancer for React components. Wrapping a component with the \`Radium\` enhancer function supercharges the \`style\` prop. Radium hooks in to the creation of any React elements owned by the wrapped component that are built-in (meaning any component you didn't implement yourself, such as \`div\`, \`span\`, etc) and adds some juice to any of their \`style\` props.`,
+[Radium](https://github.com/FormidableLabs/radium) is an enhancer for React components. Wrapping a component with the \`Radium\` function supercharges the \`style\` prop. Radium does this by overloading the render function of the provided component, recursing in to the result of the original render and applying some juice to the \`style\` prop of each element.`,
 
-    `Radium enhances the style prop in a number of ways, the feature you'll use most often is that instead of only being able to pass an plain object as a \`style\` prop, you can instead pass an array of style objects which will be flattened together. This alone is a very handy feature for composing styles. Style object can also include a number of CSS pseudo-selectors (e.g. \`:hover\`) as properties which Radium will automatically apply to your style object when in the correct state.`,
+    `Radium enhances the style prop in a number of ways. The enhancement you'll most likely use the most often is that instead of only being able to provide an plain object as a value to the \`style\` prop, you can instead pass an array of style objects which will be flattened together. This alone is a very handy feature for composing styles. Style object can also include a number of CSS pseudo-selectors (e.g. \`:hover\`) as properties which Radium will automatically apply to your style object when in the correct state.`,
 
     js`import React from 'react';
 import Radium from 'radium';
@@ -81,9 +81,9 @@ names.map((name, index) => {
   );
 });`,
 
-    `One of the greatest things about using JavaScript to define your styles is that you can take full advantage of JavaScript's functionality. Variables, which were only recently added to CSS, are of course available. Composing styles becomes super easy by using the ES6 spread operator or passing arrays as style props.`,
+    `One of the greatest things about using JavaScript to define your styles is that you can take full advantage of JavaScript's functionality. Variables, which were only recently added to CSS, are of course available. Composing styles becomes ridiculously easy by using the ES6 spread operator or through building an array of styles. Providing and overriding styles of nested components can easily be achieved - without any need for \`!important\` flags.`,
 
-    `On the other hand, one of the big negatives of using the style prop rather than a stylesheet is that you lose a lot of great existing tooling - such as the aforementioned [precss](https://github.com/jonathantneal/precss). The biggest time saver that you lose is most probably the autogeneration of browser vendor prefixes. Luckily, Radium has support for autoprefixing built in. It bundles [inline-style-prefixer](https://github.com/rofrischmann/inline-style-prefixer) which takes care of adding only the browser prefixes required to your styles.`,
+    `On the other hand, one of the big negatives of using the style prop rather than a stylesheet is that you lose a lot of great existing tooling - such as the aforementioned [precss](https://github.com/jonathantneal/precss). The biggest time saver that you lose by using inline styles is most probably the autogeneration of browser vendor prefixes. Luckily, Radium has support for autoprefixing built in. It bundles [inline-style-prefixer](https://github.com/rofrischmann/inline-style-prefixer) which takes care of adding only the browser prefixes required to your styles.`,
 
     `If you do decide to use Radium for a project you most probably won't be completely free from CSS. While you can style all of *your* React components with Radium if you want to, there may still be times when you need to style components that do not allow you to override their styles via props or you may need to work with DOM elements which are not controlled by React. For those situations, Radium provides a \`Style\` component which lets you provide styles scoped to CSS selectors. For example:`,
 
