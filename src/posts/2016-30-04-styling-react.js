@@ -113,7 +113,6 @@ names.map((name, index) => {
 
     `Radium has a number of other features including support for media queries and keyframes. You can learn more about Radium here: https://github.com/FormidableLabs/radium.`,
   ],
-  draft: true,
   title: 'Styling React',
   slug: 'styling-react',
   created_at: new Date('2016-05-01T06:07:17.057Z')
