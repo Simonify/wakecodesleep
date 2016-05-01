@@ -87,7 +87,7 @@ styles = {
   post: {
     display: `flex`,
     width: `100%`,
-    padding: `25px`,
+    padding: 25,
     flexGrow: 0,
     flexShrink: 0,
     flexDirection: `column`,

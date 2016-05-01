@@ -132,8 +132,10 @@ styles = {
     lineHeight: `34px`,
     textDecoration: `none`,
     color: `#FFFFFF`,
-    ':hover': {
-      borderBottomColor: `rgba(255, 255, 255, 0.25)`
+    '@media (min-width: 720px)': {
+      ':hover': {
+        borderBottomColor: `rgba(255, 255, 255, 0.25)`
+      },
     }
   },
   about: {
