@@ -6,7 +6,7 @@ export default {
 
     `So why would you ever consider doing anything else? The idea of building a site without stylesheets sounds crazy at first but I decided to investigate the idea when I realised the vast majority of the CSS that I was writing was almost always directly related to specific React components. I strive for most of my components to be fully encapsulated so having these styles stored and loaded in a completely separate way seemed odd. I wasn't really seperating my concerns by using stylesheets separate from my JavaScript, I was just putting the the same concerns in different files.`,
 
-    `After doing a quick bit of searching, I discovered that there are already several alternatives to vanilla stylesheets that exist within the React ecosystem. In this post, I'll explain two different ways of working with styles in a React application. The first option being the most familiar, using \`.css\` files but in a slightly more modern way where as the second option almost entirely drops stylesheets in favour of the \`style\` prop.`,
+    `After doing a quick bit of searching, I discovered that there are already several alternatives to vanilla stylesheets that exist within the React ecosystem. In this post, I'll explain two different ways of working with styles in a React application. The first option being the most familiar; using \`.css\` files but in a slightly more modern way where as the second option almost entirely drops stylesheets in favour of the \`style\` prop.`,
 
     `### webpack's css-loader
 
