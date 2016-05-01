@@ -18,6 +18,12 @@ export default class PostHandler extends Component {
     findDOMNode(this).scrollTop += delta;
   }
 
+  componentDidUpdate(props) {
+    if (this.props.route.post !== props.route.post) {
+      findDOMNode(this).scrollTop = 0;
+    }
+  }
+
   render() {
     const { post, posts } = this.props.route;
 
