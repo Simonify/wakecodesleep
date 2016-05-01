@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes, cloneElement } from 'react';
 import Radium from 'radium';
 import About from 'components/about';
 import posts from 'posts/index';
@@ -9,16 +9,30 @@ var styles;
 export default class App extends Component {
   render() {
     return (
-      <div className="app" style={styles.component}>
+      <div className="app" style={styles.component} onWheel={this._onWheel}>
         <div style={styles.frame}>
           <About />
           <div style={styles.content}>
-            {this.props.children}
+            {cloneElement(this.props.children, { ref: this._setChildRef })}
           </div>
         </div>
       </div>
     );
   }
+
+  _setChildRef = (ref) => {
+    this._childRef = ref;
+  };
+
+  _onWheel = (event) => {
+    event.preventDefault();
+
+    if (typeof this._childRef === 'object') {
+      if (typeof this._childRef.scroll === 'function') {
+        this._childRef.scroll(event.deltaY);
+      }
+    }
+  };
 }
 
 styles = {

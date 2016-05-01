@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import Radium from 'radium';
+import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
-import Post from './post';
-import { LINK } from 'posts/constants';
+import Radium from 'radium';
 import moment from 'moment';
+import { LINK } from 'posts/constants';
+import Post from './post';
 
 const RadiumLink = Radium(Link);
 
@@ -15,17 +16,25 @@ export default class Index extends Component {
     route: PropTypes.object.isRequired
   };
 
+  scroll(delta) {
+    findDOMNode(this).scrollTop += delta;
+  }
+
   render() {
     const { posts } = this.props.route;
 
     return (
-      <div className="index" style={styles.component}>
+      <div className="index" style={styles.component} onScroll={this.props.onScroll}>
         {posts.map(this.renderPost)}
       </div>
     );
   }
 
   renderPost(post, index, posts) {
+    if (post.draft) {
+      return null;
+    }
+
     let tag;
 
     if (post.tag) {

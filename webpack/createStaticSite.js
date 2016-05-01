@@ -7,32 +7,10 @@ import getRoutes from 'router/getRoutes';
 
 export const ENTRY = `blog-${Date.now()}`;
 
-const createAssetFromContents = (src, length = src.length) => ({
+const createAsset = (src, length = src.length) => ({
   source: () => src,
   size: () => length
 });
-
-function getAssetsFromCompiler(compiler, webpackStatsJson) {
-  const assets = {};
-
-  for (const chunk of Object.keys(webpackStatsJson.assetsByChunkName)) {
-    let chunkValue = webpackStatsJson.assetsByChunkName[chunk];
-
-    // Webpack outputs an array for each chunk when using sourcemaps
-    if (chunkValue instanceof Array) {
-      // Is the main bundle always the first element?
-      chunkValue = chunkValue[0];
-    }
-
-    if (compiler.options.output.publicPath) {
-      chunkValue = compiler.options.output.publicPath + chunkValue;
-    }
-
-    assets[chunk] = chunkValue;
-  }
-
-  return assets;
-}
 
 const getAssets = (compiler, chunks) => chunks.reduce((assets, chunk) => {
   let chunkFiles = [...chunk.files];
@@ -58,7 +36,7 @@ const getAssets = (compiler, chunks) => chunks.reduce((assets, chunk) => {
 export default function createStaticSite() {
   function development({ compiler, assets, routes, done }) {
     const app = '<!doctype html>' + renderToStaticMarkup(<Html assets={assets} />);
-    compiler.assets['index.html'] = createAssetFromContents(app);
+    compiler.assets['index.html'] = createAsset(app);
 
     /**
      * webpack didnt want to route URLs containing periods so do this for now
@@ -84,14 +62,14 @@ export default function createStaticSite() {
     }
 
     const promises = routes.map(({ path: _path }) => {
-      let filename = _path.replace(/^(\/|\\)/, ''); // Remove leading slashes for webpack-dev-server
+      let filename = _path.replace(/^(\/|\\)/, '');
 
       if (!/\.(html?)$/i.test(filename)) {
         filename = path.join(filename, 'index.html');
       }
 
       return render({ path: _path, assets }).then((res) => {
-        compiler.assets[filename] = createAssetFromContents(res);
+        compiler.assets[filename] = createAsset(res);
       }).catch((err) => {
         compiler.errors.push(err.stack);
       });

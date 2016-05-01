@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import Radium from 'radium';
 import Post from 'components/post';
 import Footer from 'components/footer';
@@ -12,6 +13,10 @@ export default class PostHandler extends Component {
     location: PropTypes.object.isRequired,
     route: PropTypes.object.isRequired
   };
+
+  scroll(delta) {
+    findDOMNode(this).scrollTop += delta;
+  }
 
   render() {
     const { post, posts } = this.props.route;
