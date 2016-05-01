@@ -5,9 +5,10 @@
 
 #sf .post-component .body a {
   transition: border-bottom-color 250ms ease, color 250ms ease;
+  font-weight: 500;
   border-bottom: 1px solid transparent;
   text-decoration: none;
-  color: #76736E;
+  color: #000000;
 }
 
 #sf .post-component .body a:hover {
