@@ -5,6 +5,7 @@ export default {
     js`export default function wakecodesleep() {
   return 'Welcome to my new blog!';
 }`,
+
     `After turning off my blog several years ago, I've decided to create a new one as a place to share any thoughts that I have during the day, interesting snippets of code and useful links which I discover. I also decided to re-invent the wheel rather than use an existing platform such as Medium or Tumblr and instead built my own simple blogging tool.`,
 
     `The blog is rendered using React and I've created a small webpack plugin to compile each route down to a static HTML file. This makes it very easy to deploy the blog to a static host such as Amazon S3 (which I do automatically with a basic git push hook).`,
