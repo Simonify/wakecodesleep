@@ -1,8 +1,8 @@
-import posts from '../../posts';
 import React from 'react';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 import App from 'handlers/app';
 import getRoutes from './getRoutes';
+import posts from '../../posts';
 
 const routeComponents = getRoutes(posts).map((route) => {
   const props = {
@@ -19,12 +19,6 @@ export const routes = (
   <Route path="/" component={App}>
     {routeComponents}
   </Route>
-);
-
-export const router = (
-  <Router history={browserHistory}>
-    {routes}
-  </Router>
 );
 
 export default function createRouter(props) {
