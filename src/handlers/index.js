@@ -30,7 +30,7 @@ export default class Index extends Component {
     );
   }
 
-  renderPost(post, index, posts) {
+  renderPost = (post, index, posts) => {
     if (post.draft) {
       return null;
     }
@@ -51,6 +51,7 @@ export default class Index extends Component {
         key={post.slug}
         className="has-font"
         style={[styles.post, lastChild && styles.lastPost]}
+        onMouseDown={this._onMouseDown}
         to={`/posts/${post.slug}.html`}
       >
         <div style={styles.titleRow}>
@@ -68,7 +69,12 @@ export default class Index extends Component {
         </div>
       </RadiumLink>
     );
-  }
+  };
+
+  /**
+   * Fixes Radium's weird active state bug.
+   */
+  _onMouseDown = (e) => e.preventDefault();
 }
 
 styles = {
@@ -99,6 +105,9 @@ styles = {
     color: `#333333`,
     ':hover': {
       background: `rgba(0,0,0,.02)`
+    },
+    ':active': {
+      background: `rgba(0,0,0,.05)`
     }
   },
   lastPost: {

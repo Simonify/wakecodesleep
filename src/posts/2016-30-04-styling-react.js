@@ -33,11 +33,11 @@ export default {
 
     `You can then use these identifiers as values for the \`className\` prop (to conditionally combine multiple class names together you can use something like my own [class-name](https://github.com/simonify/class-name) module). One of the great things about css-loader is that because it still simply post-processes a stylesheet, you can use it in conjuction with other great webpack loaders such as [precss](https://github.com/jonathantneal/precss).`,
 
-    `In summary, css-loader with [CSS modules](https://github.com/css-modules/css-modules) let you keep the familiarity of CSS but work with it in a more modern, modular way. You can read more about it here: https://github.com/webpack/css-loader.`,
+    `[css-loader](https://github.com/webpack/css-loader) lets you keep the familiarity of CSS but work with it in a more modern, modular way. You can read more about it here: https://github.com/webpack/css-loader.`,
 
     `### Radium
 
-[Radium](https://github.com/FormidableLabs/radium) is an enhancer for React components. Wrapping a component with the \`Radium\` function supercharges the \`style\` prop. Radium does this by overloading the render function of the provided component, recursing in to the result of the original render and applying some juice to the \`style\` prop of each element.`,
+[Radium](https://github.com/FormidableLabs/radium) is an enhancer for React components. Wrapping a component with the \`Radium\` function supercharges the \`style\` prop. Radium does this by overloading the render function of the provided component, recursing in to the result of the original render and applying some juice to the \`style\` prop of each DOM-based element.`,
 
     `Radium enhances the style prop in a number of ways. The enhancement you'll use the most often is instead of only being able to provide an plain object as a value to the \`style\` prop, you can instead pass an array of style objects, which will be flattened together. This alone is a very handy feature for composing styles. Style objects can also include a number of CSS inspired properties (such as \`:hover\`) which Radium will automatically apply to your style object when in the correct state.`,
 
@@ -113,7 +113,7 @@ return names.map((name, index) => {
   }
 </style>`,
 
-    `Radium has a number of other features including support for media queries and keyframes. You can learn more about Radium at: https://github.com/FormidableLabs/radium.`,
+    `[Radium](https://github.com/FormidableLabs/radium) has a number of other features including support for media queries and keyframes. You can learn more about Radium at: https://github.com/FormidableLabs/radium.`,
   ],
   title: 'Styling React',
   slug: 'styling-react',
