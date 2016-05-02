@@ -1,4 +1,4 @@
-import { js } from './tags';
+import { js } from 'posts/tags';
 
 export default {
   content: [

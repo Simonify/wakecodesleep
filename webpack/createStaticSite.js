@@ -82,7 +82,7 @@ export default function createStaticSite() {
 
   function apply(webpack) {
     webpack.plugin('emit', (compiler, done) => {
-      const posts = require('posts').default;
+      const posts = require('../posts').default;
       const routes = getRoutes(posts);
       const stats = compiler.getStats();
       const statsJson = stats.toJson();

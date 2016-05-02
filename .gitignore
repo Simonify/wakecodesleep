@@ -5,7 +5,6 @@ NOTES
 
 node_modules/
 server/lib
-config.js
 
 dist/
 lib

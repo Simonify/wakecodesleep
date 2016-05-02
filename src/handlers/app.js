@@ -1,4 +1,5 @@
 import React, { Component, PropTypes, cloneElement } from 'react';
+import DocumentTitle from 'react-document-title';
 import Radium from 'radium';
 import About from 'components/about';
 import posts from 'posts/index';
@@ -7,13 +8,26 @@ var styles;
 
 @Radium
 export default class App extends Component {
+  static propTypes = {
+    config: PropTypes.object.isRequired,
+    children: PropTypes.node
+  };
+
+  static childContextTypes = {
+    config: PropTypes.object.isRequired
+  };
+
+  getChildContext = () => ({ config: this.props.config });
+
   render() {
     return (
       <div className="app" style={styles.component} onWheel={this._onWheel}>
         <div style={styles.frame}>
           <About />
           <div style={styles.content}>
-            {cloneElement(this.props.children, { ref: this._setChildRef })}
+            <DocumentTitle title={this.props.config.title}>
+              {cloneElement(this.props.children, { ref: this._setChildRef })}
+            </DocumentTitle>
           </div>
         </div>
       </div>

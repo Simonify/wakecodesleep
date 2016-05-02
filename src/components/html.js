@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react';
 
 export default class Html extends Component {
   static propTypes = {
-    assets: PropTypes.object,
-    children: PropTypes.node
+    assets: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired
   };
 
   render() {
@@ -18,7 +19,7 @@ export default class Html extends Component {
     return (
       <html id="sf-html">
         <head>
-          <title>Simon Fletcher</title>
+          <title>{this.props.title}</title>
           <meta httpEquiv="Content-type" content="text/html; charset=utf-8"/>
           <link rel="shortcut icon" href="http://66.media.tumblr.com/avatar_1dbc1bcdaa9e_128.png" />
           {css && css.map((src) => (<link key={src} rel="stylesheet" href={src} />))}

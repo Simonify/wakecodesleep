@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+require('babel-register');
+require('babel-polyfill');
+
+switch (process.argv[2]) {
+  case 'create':
+    require('./create').default(process.argv.slice(3));
+    break;
+  default:
+    console.error('Unknown command: ', process.argv[2] || '');
+    return;
+}
