@@ -1,3 +1,3 @@
 import posts from './_posts.json';
 
-export default posts.reverse().map((fn) => require(`./${fn}`).default);
+export default posts.map((fn) => require(`./${fn}`).default);
