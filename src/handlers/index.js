@@ -115,6 +115,7 @@ styles = {
   },
   titleRow: {
     display: `flex`,
+    width: `100%`,
     flexDirection: `row`,
     alignItems: `center`
   },
@@ -136,10 +137,14 @@ styles = {
     }
   },
   title: {
+    width: `100%`,
     flexGrow: 0,
     flexShrink: 0,
     fontSize: 18,
-    fontWeight: 500
+    fontWeight: 500,
+    whiteSpace: `nowrap`,
+    textOverflow: `ellipsis`,
+    overflow: `hidden`
   },
   meta: {
     marginTop: 5,

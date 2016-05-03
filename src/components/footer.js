@@ -98,6 +98,7 @@ styles = {
   },
   siblings: {
     component: {
+      display: `flex`,
       flexDirection: `row`,
       justifyContent: `space-between`,
       alignItems: `center`,
@@ -105,15 +106,19 @@ styles = {
     },
     previous: {
       display: `flex`,
+      padding: `0 10px 0 0`,
       flexGrow: 1,
       flexShrink: 1,
       justifyContent: `flex-start`,
+      overflow: `hidden`
     },
     next: {
       display: `flex`,
+      padding: `0 0 0 10px`,
       flexGrow: 1,
       flexShrink: 1,
       justifyContent: `flex-end`,
+      overflow: `hidden`
     },
     arrow: {
       fontSize: 18,
