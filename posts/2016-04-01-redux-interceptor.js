@@ -3,9 +3,9 @@ import { js } from 'posts/tags';
 export default {
   title: "Rendering asynchronous React components with redux-interceptor",
   content: [
-    `Rendering a React component on the server often requires asynchronously fetching any data which the component or any of its children requires. If you're using Redux to store *and* fetch your data, you can easily solve this problem through a small piece of middleware. The small trade-off with using this method is that you will suffer the slight performance penalty of rendering your React application twice but this shouldn't be a problem for most applications.`,
+    `Rendering a React component on the server often requires asynchronously fetching any data which the component or any of its children require. If you're using Redux to store *and* fetch your data, you can easily solve this problem through a small piece of middleware. The trade-off with using this method is that you will suffer the slight performance penalty of rendering your React application twice but this shouldn't be a problem for most applications.`,
 
-    `The middleware we'll use to solve this problem, \`redux-interceptor\`, intercepts and records any store actions being dispatched so that they can be executed at a later time. We can take advantage of the middleware by placing all essential data fetching in the \`componentWillMount\` lifecycle method. This method is called during server renders (\`renderToString\`) which means you can capture all the necessary actions your component tree requires, wait until they resolve and then re-render your application with a hydrated store.`,
+    `The middleware we'll use to solve this problem, [redux-interceptor](http://github.com/simonify/redux-interceptor), intercepts and records any store actions being dispatched so that they can be executed at a later time. We can take advantage of the middleware by placing all essential data fetching in the \`componentWillMount\` lifecycle method. This method is called during server renders (\`renderToString\`) which means you can capture all the necessary actions your component tree requires, wait until they resolve and then re-render your application with a hydrated store.`,
 
     `I've published the middleware on GitHub: http://github.com/simonify/redux-interceptor and you can install it via \`npm install react-interceptor --save\`.`,
 
@@ -73,6 +73,6 @@ console.log(render());
 // <div data-reactroot="" data-reactid="1" data-react-checksum="-1584000246">0.9193182914256697</div>
 interceptor.resolve().then(render).then(::console.log);`
   ],
-  slug: "2016-04-01-rendering",
+  slug: "2016-04-01-redux-interceptor",
   created_at: new Date("2016-05-03T06:18:20.688Z")
 }
