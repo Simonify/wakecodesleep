@@ -74,5 +74,5 @@ console.log(render());
 interceptor.resolve().then(render).then(::console.log);`
   ],
   slug: "2016-05-03-redux-interceptor",
-  created_at: new Date("2016-05-03T06:18:20.688Z")
+  created_at: new Date("2016-05-03T09:39:16.082Z")
 }
