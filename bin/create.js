@@ -16,7 +16,7 @@ export default function create([title]) {
 
   const post = `export default {
   title: ${JSON.stringify(title)},
-  contents: "",
+  content: "",
   slug: ${JSON.stringify(fullSlug)},
   created_at: new Date(${JSON.stringify(date.toISOString())})
 }  `;
