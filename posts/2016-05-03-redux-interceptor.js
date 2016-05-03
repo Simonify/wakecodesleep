@@ -73,6 +73,6 @@ console.log(render());
 // <div data-reactroot="" data-reactid="1" data-react-checksum="-1584000246">0.9193182914256697</div>
 interceptor.resolve().then(render).then(::console.log);`
   ],
-  slug: "2016-04-01-redux-interceptor",
+  slug: "2016-05-03-redux-interceptor",
   created_at: new Date("2016-05-03T06:18:20.688Z")
 }
