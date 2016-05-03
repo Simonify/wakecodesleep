@@ -39,6 +39,13 @@ export default class App extends Component {
   };
 
   _onWheel = (event) => {
+    if (
+      (event.target.scrollHeight - event.target.offsetHeight) ||
+      (event.target.scrollWidth - event.target.offsetWidth)
+    ) {
+      return;
+    }
+
     event.preventDefault();
 
     if (typeof this._childRef === 'object') {
