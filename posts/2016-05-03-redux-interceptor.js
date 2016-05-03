@@ -54,7 +54,11 @@ class App extends Component {
   }
 
   render() {
-    return (<div>{this.props.random ? this.props.random : 'Loading...'}</div>);
+    return (
+      <div>
+        {typeof this.props.random === 'number' ? this.props.random : 'Loading...'}
+      </div>
+    );
   }
 }
 

@@ -20,7 +20,8 @@ export default class Html extends Component {
       <html id="sf-html">
         <head>
           <title>{this.props.title}</title>
-          <meta httpEquiv="Content-type" content="text/html; charset=utf-8"/>
+          <meta httpEquiv="Content-type" content="text/html; charset=utf-8" />
+          <meta name="viewport" content="initial-scale=0.75" />
           <link rel="shortcut icon" href="http://66.media.tumblr.com/avatar_1dbc1bcdaa9e_128.png" />
           {css && css.map((src) => (<link key={src} rel="stylesheet" href={src} />))}
         </head>
