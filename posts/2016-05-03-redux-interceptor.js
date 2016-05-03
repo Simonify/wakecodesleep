@@ -48,7 +48,7 @@ class App extends Component {
   };
 
   componentWillMount() {
-    if (!this.props.random) {
+    if (typeof this.props.random !== 'number') {
       this.props.fetchRandom();
     }
   }
