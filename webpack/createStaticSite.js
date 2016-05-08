@@ -40,7 +40,7 @@ export default function createStaticSite(config) {
       hostname: config.hostname,
       urls: routes.map(({ path }) => ({
         url: path,
-        changefreq: 'weekly',
+        changefreq: path === '/' ? 'hourly' : 'weekly',
         priority: path === '/' ? 1 : 0.8
       }))
     }).toXML();
