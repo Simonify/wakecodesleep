@@ -3,7 +3,6 @@ import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
 import Radium from 'radium';
 import moment from 'moment';
-import { LINK } from 'posts/constants';
 import Post from './post';
 
 const RadiumLink = Radium(Link);
@@ -38,9 +37,11 @@ export default class Index extends Component {
     let tag;
 
     if (post.tag) {
+      const tagStyle = post.tag.toLowerCase().replace(/[^A-Za-z_-]+/, '');
+
       tag = {
         label: post.tag,
-        style: [styles.tag, styles.tags[post.tag] && styles.tags[post.tag]]
+        style: [styles.tag, styles.tags[tagStyle] && styles.tags[tagStyle]]
       };
     }
 
@@ -125,13 +126,17 @@ styles = {
     padding: `2px 6px`,
     flexGrow: 0,
     flexShrink: 0,
-    borderRadius: 3,
+    borderRadius: 2,
     fontSize: 12,
     fontWeight: 600,
     lineHeight: `16px`
   },
   tags: {
-    [LINK]: {
+    link: {
+      background: `#5E5E5E`,
+      color: `#FFFFFF`
+    },
+    opensource: {
       background: `#5E5E5E`,
       color: `#FFFFFF`
     }
