@@ -78,5 +78,6 @@ console.log(render());
 interceptor.resolve().then(render).then(::console.log);`
   ],
   slug: "2016-05-03-redux-interceptor",
+  tag: 'Open Source',
   created_at: new Date("2016-05-03T09:39:16.082Z")
 }
