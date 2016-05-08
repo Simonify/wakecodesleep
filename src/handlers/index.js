@@ -118,7 +118,8 @@ styles = {
     display: `flex`,
     width: `100%`,
     flexDirection: `row`,
-    alignItems: `center`
+    alignItems: `center`,
+    whiteSpace: `nowrap`
   },
   tag: {
     display: `flex`,
@@ -142,12 +143,10 @@ styles = {
     }
   },
   title: {
-    width: `100%`,
     flexGrow: 0,
-    flexShrink: 0,
+    flexShrink: 1,
     fontSize: 18,
     fontWeight: 500,
-    whiteSpace: `nowrap`,
     textOverflow: `ellipsis`,
     overflow: `hidden`
   },
