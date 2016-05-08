@@ -1,5 +1,6 @@
 const base = require('./webpack.config.base');
 const webpack = require('webpack');
+const { default: config } = require('../config');
 const { default: createStaticSite, ENTRY } = require('./createStaticSite');
 
 module.exports = {
@@ -57,6 +58,6 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
       }
     }),
-    createStaticSite()
+    createStaticSite(config)
   ]
 };

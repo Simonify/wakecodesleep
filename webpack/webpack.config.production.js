@@ -2,6 +2,7 @@ const base = require('./webpack.config.base');
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { default: config } = require('../config');
 const { default: createStaticSite, ENTRY } = require('./createStaticSite');
 
 module.exports = {
@@ -45,6 +46,6 @@ module.exports = {
         warnings: false
       }
     }),
-    createStaticSite()
+    createStaticSite(config)
   ]
 };

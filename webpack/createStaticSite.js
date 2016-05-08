@@ -2,6 +2,7 @@ import path from 'path';
 import evaluate from 'eval';
 import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
+import { createSitemap } from 'sitemap';
 import Html from 'components/html';
 import getRoutes from 'router/getRoutes';
 
@@ -33,10 +34,22 @@ const getAssets = (compiler, chunks) => chunks.reduce((assets, chunk) => {
   return assets;
 }, { js: [], css: [] });
 
-export default function createStaticSite() {
+export default function createStaticSite(config) {
+  function sitemap(routes) {
+    return createSitemap({
+      hostname: config.hostname,
+      urls: routes.map(({ path }) => ({
+        url: path,
+        changefreq: 'weekly',
+        priority: path === '/' ? 1 : 0.8
+      }))
+    }).toXML();
+  }
+
   function development({ compiler, assets, routes, done }) {
     const app = '<!doctype html>' + renderToStaticMarkup(<Html assets={assets} />);
     compiler.assets['index.html'] = createAsset(app);
+    compiler.assets['sitemap.xml'] = sitemap(routes);
 
     /**
      * webpack didnt want to route URLs containing periods so do this for now
@@ -61,6 +74,8 @@ export default function createStaticSite() {
       render = render['default'];
     }
 
+    compiler.assets['sitemap.xml'] = createAsset(sitemap(routes));
+
     const promises = routes.map(({ path: _path }) => {
       let filename = _path.replace(/^(\/|\\)/, '');
 
@@ -75,7 +90,9 @@ export default function createStaticSite() {
       });
     });
 
-    Promise.all(promises).then(() => done()).catch((err) => {
+    Promise.all(promises).then(() => {
+      done();
+    }).catch((err) => {
       console.log('uh', err);
     });
   }
