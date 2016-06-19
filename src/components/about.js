@@ -21,11 +21,11 @@ export default class About extends Component {
             Hi, I'm Simon.
           </RadiumLink>
           <p className="has-font" style={styles.about}>
-            {`Simon Fletcher is a 23 year old British software engineer currently
+            {`Simon Fletcher is a 24 year old British software engineer currently
               working with JavaScript at `}
             <a key="mbx" href="https://minbox.com" style={styles.link} target="_blank">
               Minbox
-            </a>.
+            </a> in San Francisco, CA.
           </p>
           <p className="has-font" style={[styles.about, styles.history]}>
             {'Previously, he was a founder at Y Combinator funded '}
